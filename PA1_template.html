@@ -181,14 +181,12 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Reproducible Research: Peer Assessment 1</h1>
 
-<p>Notice: in order for this script to run, the database (activity.xls) should be in <em>activity</em> folder which should be placed in the same folder of this markdown file.</p>
-
 <pre><code class="r">library(lattice)
 </code></pre>
 
 <h2>Loading and preprocessing the data</h2>
 
-<pre><code class="r">activity &lt;- read.csv(&quot;./activity/activity.csv&quot;)
+<pre><code class="r">activity &lt;- read.csv(unz(&quot;activity.zip&quot;, &quot;activity.csv&quot;))
 </code></pre>
 
 <p>No data preproceesing was required.</p>

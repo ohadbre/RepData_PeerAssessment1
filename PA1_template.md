@@ -4,7 +4,6 @@
 
 # Reproducible Research: Peer Assessment 1
 
-Notice: in order for this script to run, the database (activity.xls) should be in *activity* folder which should be placed in the same folder of this markdown file.
 
 
 ```r
@@ -15,7 +14,7 @@ library(lattice)
 ## Loading and preprocessing the data
 
 ```r
-activity <- read.csv("./activity/activity.csv")
+activity <- read.csv(unz("activity.zip", "activity.csv"))
 ```
 
 
