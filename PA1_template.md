@@ -25,9 +25,8 @@ No data preproceesing was required.
 
 ```r
 agSumStepsDay <- aggregate(steps ~ date, data = activity, sum)
-barplot(agSumStepsDay$steps, names.arg = agSumStepsDay$date, cex.names = 0.5, 
-    cex.axis = 0.5, las = 2, col = "cornflowerblue", main = "The Total Number of Steps Taken Each Day", 
-    xlab = "Date", ylab = "Steps")
+hist(agSumStepsDay$steps, col = "cornflowerblue", main = "The Total Number of Steps Taken Each Day", 
+    xlab = "Steps")
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
@@ -56,6 +55,7 @@ median(agSumStepsDay$steps)
 ```
 ## [1] 10765
 ```
+
 
 
 ## What is the average daily activity pattern?
@@ -100,7 +100,7 @@ sum(!complete.cases(activity))
 
 ### Devise a strategy for filling in all of the missing values in the dataset.
 
-The strategy I chose was to use the mean for that that 5-minute interval.
+The strategy I chose was to use the mean for the 5-minute interval which the missing value belonged to.
 
 ### Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
@@ -121,9 +121,8 @@ for (i in NARows) {
 
 ```r
 agSumStepsDayNoNA <- aggregate(steps ~ date, data = NoNA, sum)
-barplot(agSumStepsDayNoNA$steps, names.arg = agSumStepsDayNoNA$date, cex.names = 0.5, 
-    cex.axis = 0.5, las = 2, col = "cornflowerblue", main = "The Total Number of Steps Taken Each Day", 
-    xlab = "Date", ylab = "Steps")
+hist(agSumStepsDayNoNA$steps, col = "cornflowerblue", main = "The Total Number of Steps Taken Each Day", 
+    xlab = "Steps")
 ```
 
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
@@ -149,7 +148,7 @@ median(agSumStepsDayNoNA$steps)
 ```
 
 
-As we can see, in this example the impact of imputing missing data on the estimates of the total daily number of steps in quite neglectable.
+As we can see, in this example the impact of imputing missing data on the estimates of the total daily number of steps (mean and median) in quite neglectable.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
